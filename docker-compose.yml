@@ -1,0 +1,32 @@
+services:
+  web_backend:
+    build:
+      context: .
+      dockerfile: dockerfiles/Dockerfile
+    image: web_backend:latest  # 构建后镜像的名称和标签
+    restart: unless-stopped # 重启策略
+    networks:
+      - default
+    depends_on:
+      - mysql-server
+      - redis-server
+    environment:
+      # -- mysql
+      MYSQL_HOST: mysql-server
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root_secret_password}
+      MYSQL_DATABASE: default_db
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: my_secret_password
+    volumes:
+      - .:/root/web_backend
+      - "~/.ssh:/root/.ssh:ro" # 挂载宿主机的ssh配置文件，方便推拉代码（只读）
+      - "/etc/localtime:/etc/localtime:ro" # 挂载宿主机时间到容器
+    working_dir: /root/web_backend
+    # sleep infinity 用于保持容器运行，否则 vscode 无法进入容器，建议写在 .devcontainer/docker-compose.yml 文件中
+    command: ["sleep", 'infinity']
+
+
+networks:
+  default:
+    name: web_backend-network
+  
