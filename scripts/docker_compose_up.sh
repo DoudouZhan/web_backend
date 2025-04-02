@@ -1,0 +1,1 @@
+docker compose -f docker-compose.middlewares.yml -f docker-compose.yml up --build
