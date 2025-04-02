@@ -133,11 +133,11 @@ ENV VIRTUAL_ENV_DISABLE_PROMPT=1
 # ============================================================
 #   Java 环境
 # ============================================================
-RUN echo "export JAVA_HOME=/usr/lib/jvm/default-java" >> $USER_HOME/.bashrc && \
-  echo "export PATH=${JAVA_HOME}/bin:${PATH}" >> $USER_HOME/.bashrc && \
-  echo "export M2_HOME=/usr/share/maven" >> $USER_HOME/.bashrc && \
-  echo "export MAVEN_HOME=/usr/share/maven" >> $USER_HOME/.bashrc && \
-  echo "export PATH=${M2_HOME}/bin:${PATH}" >> $USER_HOME/.bashrc && \
+RUN echo "export JAVA_HOME=/usr/lib/jvm/default-java" >> $USER_HOME/.zshrc && \
+  echo "export PATH=${JAVA_HOME}/bin:${PATH}" >> $USER_HOME/.zshrc && \
+  echo "export M2_HOME=/usr/share/maven" >> $USER_HOME/.zshrc && \
+  echo "export MAVEN_HOME=/usr/share/maven" >> $USER_HOME/.zshrc && \
+  echo "export PATH=${M2_HOME}/bin:${PATH}" >> $USER_HOME/.zshrc && \
   # 修改 Maven settings.xml 配置，添加阿里云镜像源 (https://maven.apache.org/settings.html)
   export SETTINGS_FILE="/usr/share/maven/conf/settings.xml" && \
   mkdir -p "$(dirname "$SETTINGS_FILE")" && \
