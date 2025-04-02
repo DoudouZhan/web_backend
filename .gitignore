@@ -1,0 +1,51 @@
+# 编译输出
+/bin/
+/build/
+/target/
+
+# 临时文件
+*.log
+*.tmp
+*.swp
+*.bak
+*.class
+
+# IDE 配置文件
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+.springBeans
+
+# NetBeans
+/nbproject/private/
+/build/
+/dist/
+
+# Maven
+/logs
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Gradle
+.gradle/
+build/
+
+# VS Code
+.vscode/
+
+# 操作系统生成的无关文件
+.DS_Store
+Thumbs.db
